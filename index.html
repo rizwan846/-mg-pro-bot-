@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MG Pro Bot by Rizwan</title>
+    <style>
+        body {
+            background-color: #0e0e0e;
+            color: #00ffcc;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+        .header {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: gold;
+        }
+        .select-group {
+            margin: 20px 0;
+        }
+        select {
+            padding: 10px;
+            font-size: 1em;
+            background: #222;
+            color: #00ffcc;
+            border: 1px solid #00ffcc;
+        }
+        #signal-output {
+            margin-top: 30px;
+            font-size: 1.8em;
+            color: lime;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">MG Pro Bot by Rizwan</div>
+    <div class="select-group">
+        <label for="currency">Currency:</label>
+        <select id="currency">
+            <option value="EUR/USD">EUR/USD</option>
+            <option value="GBP/JPY">GBP/JPY</option>
+            <option value="AUD/CAD">AUD/CAD</option>
+        </select>
+    </div>
+    <div class="select-group">
+        <label for="timeframe">Timeframe:</label>
+        <select id="timeframe">
+            <option value="5s">5 sec</option>
+            <option value="10s">10 sec</option>
+            <option value="30s">30 sec</option>
+            <option value="1min">1 min</option>
+            <option value="5min">5 min</option>
+            <option value="15min">15 min</option>
+        </select>
+    </div>
+    <div id="signal-output">Signal: Waiting...</div>
+
+    <script>
+        function generateSignal() {
+            const signals = ['Strong Buy', 'Buy', 'Wait', 'Sell', 'Strong Sell'];
+            const signal = signals[Math.floor(Math.random() * signals.length)];
+            document.getElementById("signal-output").innerText = "Signal: " + signal;
+        }
+
+        setInterval(generateSignal, 900000); // 15 min
+        generateSignal(); // initial call
+    </script>
+</body>
+</html>
